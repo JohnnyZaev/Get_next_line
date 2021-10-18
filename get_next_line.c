@@ -6,7 +6,7 @@
 /*   By: gvarys <gvarys@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 12:27:48 by gvarys            #+#    #+#             */
-/*   Updated: 2021/10/18 18:24:49 by gvarys           ###   ########.fr       */
+/*   Updated: 2021/10/18 19:06:51 by gvarys           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_strdupbn(const char *s, int len)
 		i++;
 	}
 	ns[i] = '\n';
-	ns[i] = '\0';
+	ns[i + 1] = '\0';
 	return (ns);
 }
 
@@ -57,7 +57,7 @@ char	*get_line(char **save, int fd)
 	if (save[fd][i] == '\n' && save[fd][0] != '\n')
 	{
 		line = ft_strdupbn(save[fd], i + 1);
-		temp = ft_strdup(save[fd] + i + 1);
+		temp = ft_strdup(save[fd] + (i + 1));
 		strdell(&save[fd]);
 		save[fd] = temp;
 		if (save[fd][0] == '\0')
