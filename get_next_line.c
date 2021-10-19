@@ -6,20 +6,18 @@
 /*   By: gvarys <gvarys@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 12:27:48 by gvarys            #+#    #+#             */
-/*   Updated: 2021/10/19 13:26:40 by gvarys           ###   ########.fr       */
+/*   Updated: 2021/10/19 19:05:30 by gvarys           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-#include <fcntl.h>
-#include <stdio.h>
 
 char	*ft_strdupbn(const char *s, int len)
 {
 	char	*ns;
 	int		i;
 
-	ns = (char *)malloc(len + 1);
+	ns = (char *)malloc(len + 2);
 	if (ns == NULL)
 		return (NULL);
 	i = 0;
@@ -36,11 +34,16 @@ char	*ft_strdupbn(const char *s, int len)
 char	*crtstr(size_t size)
 {
 	char	*str;
+	size_t	i;
 
+	i = 0;
 	str = (char *)malloc(size);
-	while (*str)
+	if (!str)
+		return (NULL);
+	while (i != size)
 	{
-		*str = '\0';
+		str[i] = '\0';
+		i++;
 	}
 	return (str);
 }
