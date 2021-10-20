@@ -6,18 +6,18 @@
 /*   By: gvarys <gvarys@student.21-school.ru>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/14 12:27:48 by gvarys            #+#    #+#             */
-/*   Updated: 2021/10/19 18:19:59 by gvarys           ###   ########.fr       */
+/*   Updated: 2021/10/20 18:20:22 by gvarys           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*ft_strdupbn(const char *s, int len)
+static char	*ft_strdupbn(const char *s, int len)
 {
 	char	*ns;
 	int		i;
 
-	ns = (char *)malloc(len + 1);
+	ns = (char *)malloc(len + 2);
 	if (ns == NULL)
 		return (NULL);
 	i = 0;
@@ -31,7 +31,7 @@ char	*ft_strdupbn(const char *s, int len)
 	return (ns);
 }
 
-char	*crtstr(size_t size)
+static char	*crtstr(size_t size)
 {
 	char	*str;
 
@@ -43,7 +43,7 @@ char	*crtstr(size_t size)
 	return (str);
 }
 
-void	ft_kostylb(char **save, char *buf, int i, int fd)
+static void	ft_kostylb(char **save, char *buf, int i, int fd)
 {
 	char	*temp;
 
@@ -67,7 +67,7 @@ void	ft_kostylb(char **save, char *buf, int i, int fd)
 	}
 }
 
-char	*get_line(char **save, int fd)
+static char	*get_line(char **save, int fd)
 {
 	int		i;
 	char	*line;
@@ -102,7 +102,7 @@ char	*get_next_line(int fd)
 	char		buf[BUFFER_SIZE + 1];
 	ssize_t		rd;
 
-	if (fd < 0 || fd > 100000 || BUFFER_SIZE < 1)
+	if (fd < 0 || fd > 10243 || BUFFER_SIZE < 1)
 		return (NULL);
 	rd = 1;
 	while (rd > 0)
